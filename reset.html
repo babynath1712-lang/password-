@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password — Nexora</title>
+  <meta name="description" content="Set a new password for your Nexora account.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="password.css">
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="pwd-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Floating Particles -->
+  <div class="pwd-particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Back to Login -->
+  <a href="../login/index.html" class="pwd-back" id="pwd-back">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M19 12H5m0 0l6 6m-6-6l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back to login
+  </a>
+
+  <main class="pwd-page">
+    <!-- Reset Password Form -->
+    <div class="pwd-card active" id="step-reset">
+      <div class="pwd-header">
+        <div class="pwd-icon-wrap">
+          <div class="pwd-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="15" r="2" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 17v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <h1>Set a new password</h1>
+        <p>Your new password must be different from previously used passwords</p>
+      </div>
+
+      <form class="pwd-fields" id="reset-form" novalidate>
+        <div class="pwd-field">
+          <label for="new-password">New password</label>
+          <div class="pwd-input-wrap">
+            <svg class="pwd-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="11" width="18" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <input type="password" id="new-password" placeholder="Min. 8 characters" autocomplete="new-password" required minlength="8">
+            <button type="button" class="pwd-toggle-password" data-target="new-password" aria-label="Toggle password visibility">
+              <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:none;">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <!-- Password Strength Meter -->
+          <div class="pwd-strength" id="pwd-strength">
+            <div class="pwd-strength-bars">
+              <div class="pwd-strength-bar"></div>
+              <div class="pwd-strength-bar"></div>
+              <div class="pwd-strength-bar"></div>
+              <div class="pwd-strength-bar"></div>
+            </div>
+            <span class="pwd-strength-label" id="pwd-strength-label"></span>
+          </div>
+          <!-- Password Requirements -->
+          <div class="pwd-requirements" id="pwd-requirements">
+            <div class="pwd-req" id="req-length">
+              <span class="pwd-req-icon">○</span>
+              <span>At least 8 characters</span>
+            </div>
+            <div class="pwd-req" id="req-upper">
+              <span class="pwd-req-icon">○</span>
+              <span>One uppercase letter</span>
+            </div>
+            <div class="pwd-req" id="req-number">
+              <span class="pwd-req-icon">○</span>
+              <span>One number</span>
+            </div>
+            <div class="pwd-req" id="req-special">
+              <span class="pwd-req-icon">○</span>
+              <span>One special character</span>
+            </div>
+          </div>
+        </div>
+        <div class="pwd-field">
+          <label for="confirm-password">Confirm new password</label>
+          <div class="pwd-input-wrap">
+            <svg class="pwd-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="11" width="18" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <input type="password" id="confirm-password" placeholder="Re-enter your password" autocomplete="new-password" required minlength="8">
+            <button type="button" class="pwd-toggle-password" data-target="confirm-password" aria-label="Toggle password visibility">
+              <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:none;">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="pwd-match-status" id="pwd-match-status" style="display:none;">
+            <span class="pwd-match-icon"></span>
+            <span class="pwd-match-text"></span>
+          </div>
+        </div>
+        <button type="submit" class="pwd-submit" id="reset-submit">
+          <span class="pwd-btn-text">Reset password</span>
+          <span class="pwd-btn-loader" style="display:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5" opacity="0.25"/>
+              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Success State -->
+    <div class="pwd-card" id="step-success">
+      <div class="pwd-header">
+        <div class="pwd-icon-wrap">
+          <div class="pwd-icon pwd-icon-success">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h1>Password reset!</h1>
+        <p>Your password has been successfully changed. You can now log in with your new credentials.</p>
+      </div>
+
+      <div class="pwd-success-animation">
+        <div class="success-ring"></div>
+        <div class="success-check">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <a href="../login/index.html" class="pwd-submit" id="btn-back-login">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Log in with new password</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <p class="pwd-footer">© 2026 Nexora. <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+
+  <script src="password.js"></script>
+</body>
+</html>

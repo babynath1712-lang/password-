@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password — Nexora</title>
+  <meta name="description" content="Reset your Nexora password. Enter your email to receive a password reset link.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="password.css">
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="pwd-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Floating Particles -->
+  <div class="pwd-particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Back to Login -->
+  <a href="../login/index.html" class="pwd-back" id="pwd-back">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M19 12H5m0 0l6 6m-6-6l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back to login
+  </a>
+
+  <main class="pwd-page">
+    <!-- Step 1: Enter Email -->
+    <div class="pwd-card active" id="step-email">
+      <div class="pwd-header">
+        <div class="pwd-icon-wrap">
+          <div class="pwd-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="11" width="18" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+        <h1>Forgot your password?</h1>
+        <p>No worries — enter the email linked to your account and we'll send you a reset link.</p>
+      </div>
+
+      <form class="pwd-fields" id="forgot-form" novalidate>
+        <div class="pwd-field">
+          <label for="forgot-email">Email address</label>
+          <div class="pwd-input-wrap">
+            <svg class="pwd-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input type="email" id="forgot-email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+        </div>
+        <button type="submit" class="pwd-submit" id="forgot-submit">
+          <span class="pwd-btn-text">Send reset link</span>
+          <span class="pwd-btn-loader" style="display:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5" opacity="0.25"/>
+              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+      </form>
+
+      <p class="pwd-switch">
+        Remember your password? <a href="../login/index.html">Log in →</a>
+      </p>
+    </div>
+
+    <!-- Step 2: Check Email Confirmation -->
+    <div class="pwd-card" id="step-check-email">
+      <div class="pwd-header">
+        <div class="pwd-icon-wrap">
+          <div class="pwd-icon pwd-icon-success">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="pwd-icon-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h1>Check your email</h1>
+        <p>We've sent a password reset link to<br><span class="pwd-email-highlight" id="sent-email-display">your email</span></p>
+      </div>
+
+      <div class="pwd-email-illustration">
+        <div class="email-envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <div class="envelope-letter">
+              <div class="letter-line letter-line-1"></div>
+              <div class="letter-line letter-line-2"></div>
+              <div class="letter-line letter-line-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pwd-instructions">
+        <div class="pwd-instruction-item">
+          <div class="pwd-instruction-num">1</div>
+          <span>Open the email from Nexora</span>
+        </div>
+        <div class="pwd-instruction-item">
+          <div class="pwd-instruction-num">2</div>
+          <span>Click the reset password link</span>
+        </div>
+        <div class="pwd-instruction-item">
+          <div class="pwd-instruction-num">3</div>
+          <span>Create your new password</span>
+        </div>
+      </div>
+
+      <div class="pwd-actions">
+        <a href="reset.html" class="pwd-submit">Open reset page</a>
+        <button type="button" class="pwd-btn-outline" id="resend-btn">
+          <span class="pwd-btn-text">Resend email</span>
+          <span class="pwd-btn-loader" style="display:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5" opacity="0.25"/>
+              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <div class="pwd-resend-timer" id="resend-timer" style="display:none;">
+        Resend available in <span id="timer-count">60</span>s
+      </div>
+
+      <p class="pwd-switch">
+        Wrong email? <a href="#" id="back-to-email">Try a different one →</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <p class="pwd-footer">© 2026 Nexora. <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+
+  <script src="password.js"></script>
+</body>
+</html>
